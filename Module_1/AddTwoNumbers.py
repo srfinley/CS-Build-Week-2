@@ -33,14 +33,34 @@ class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         value = self.list_to_num(l1) + self.list_to_num(l2)
         return self.num_to_list(value)
-        # SECOND SOLUTION UNFINISHED:
-        # vals = []
+        # SECOND SOLUTION FINISHED:
+        # basically the same stats as the first one
+        # nodes = []
         # carry = 0
-        # while l1 is not None and l2 is not None:
-        #     new_val = l1.val + l2.val
-        #     vals.append((new_val + carry) % 10)
-        #     carry = (new_val + carry) // 10
-        #     l1 = l1.next
-        #     l2 = l2.next
-        # deal with one input being longer
-        # then convert vals to the ll
+
+        # # add each corresponding digit, or zero when one number is longer
+        # while l1 is not None or l2 is not None:
+        #     try:
+        #         val1 = l1.val
+        #     except AttributeError:
+        #         val1 = 0
+        #     try:
+        #         val2 = l2.val
+        #     except AttributeError:
+        #         val2 = 0
+        #     new_val = val1 + val2 + carry
+        #     nodes.append(ListNode(new_val % 10))
+        #     carry = new_val // 10
+        #     try:
+        #         l1 = l1.next
+        #     except AttributeError:
+        #         l1 = None
+        #     try:
+        #         l2 = l2.next
+        #     except AttributeError:
+        #         l2 = None
+        # if carry:
+        #     nodes.append(ListNode(carry))
+        # for index, node in enumerate(nodes[:-1]):
+        #     node.next = nodes[index+1]
+        # return nodes[0]
